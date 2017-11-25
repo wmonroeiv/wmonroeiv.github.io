@@ -1,0 +1,189 @@
+Bring: lightsabers, ball, candy
+
+Intro
+    it's almost Halloween.
+        ?who wants candy?
+    What This Class Is About
+        sure, it's a math class.
+        but you don't have to take it.
+        you can leave during the halfway break if you want.
+        so it's my job to make it cool.
+        take notes if you want, or you can just sit back and soak it in.
+        but definitely tell me if I make a mistake (I will)
+        and ask questions.  somebody ask a question right now.
+            !candy!
+            it's okay, you have two hours to get some
+    !I lied!
+        this stuff is actually called "linear algebra".
+        !that name sucks!
+            "linear"...that's like, lines, right?
+            and, well, "algebra"...yuck.
+        !words to impress your parents!
+Vectors
+    ?so, what's a vector?
+    Interpretations
+        !draw a vector on the board!
+        Geometric
+            it's an arrow.
+        Analytic
+            "Analytic Geometry"->WIP
+            it's a bunch of numbers.
+        Algebraic
+            it's this thing that obeys these rules.
+        Galactic
+            !lightsaber!
+    Operations
+        Length
+            ?what if space were non-Euclidean?
+                "Euclidean space"->WIP
+        Addition and subtraction
+            just add the components.
+            or do this thing with the arrows.
+            either way is the same.
+        ?wait, what about multiplication?
+        Scalar multiplication
+            ->WIP
+            multiply a vector by a number.
+            (does what you think it would do.)
+        !but that's boring!
+        Dot product
+            xX + yY + zZ
+            A B cos t
+            how much two vectors "agree".
+        Cross product
+            multiplication trick
+            how well two vectors define a plane.
+            area of a parallelogram
+        ?wait, what about division?
+            umm...no, sorry.
+            ?what does division even mean?
+            there are infinitely many vectors that can give a specific cross
+                    product.
+            same with dot product.
+            (but not scalar multiplication!  yeah, you can divide there.)
+    Applications
+        !video game programming!
+            suppose you have this ball. and you want to see if it hits this
+                    lightsaber.
+                !throw the ball at me!
+                saber vector x (ball - handle) = area of parallelogram
+                    divide by length of lightsaber and you get distance
+                ?how far is it along the blade?
+                    you should ask, "how much do saber and disp agree?"
+                    saber vector . (ball - handle) / length = along
+                        0 < along < length => hits!
+                        along <= 0 => ouch!
+                        along >= 1 => missed me!
+            what's a plane?
+                suppose you're making a game with a sport where a ball can
+                        bounce off arbitrary walls.
+                a plane is defined by a normal vector (->WIP), perp to all
+                        lines in the plane
+                distance from plane = (loc - some point on plane) . normal
+
+Matrices
+    Solving systems of equations
+        you did this in algebra I, and those of you more advanced in math know
+                you keep doing it.
+         a +  b + c = 100
+         a - 2b     = 0
+        -a +  b + c = 0
+        symbols like this are boring.
+        !say you have three gnomes trying to start an underpants company!
+            their names are Albus, Bartholemew, and Corey.
+            they're dividing up the profits.  the total has to be 100%:
+                    a + b + c = 100
+            Albus wants twice as much as Bartholemew.
+                    a = 2b, so a - 2b = 0
+            Corey wants however much Albus gets more than Barth.
+                    c = a - b, so -a + b + c = 0
+        solve it by substitution:
+            a = 2b, 2b + b + c = 100, c = 100 - 3b, -2b + b + 100 - 3b = 0
+                                                              100 - 4b = 0
+            so b = 25, a = 50, c = 25
+        !check this out!
+            [ 1  1  1 | 100]
+            [ 1 -2  0 |  0 ]
+            [-1  1  1 |  0 ]
+            you're allowed to: switch two equations
+                               multiply any equation by a number
+                               add two equations
+                                   (subtract is just *-1, add)
+                                [ 1  1  1 | 100]
+                                [ 0 -1  1 |  0 ]
+                                [ 0  2  2 | 100]
+
+                                [ 1  0  2 | 100]
+                                [ 0 -1  1 |  0 ]
+                                [ 0  1  1 | 50 ]
+
+                                [ 1  0  2 | 100]
+                                [ 0 -1  1 |  0 ]
+                                [ 0  0  2 | 50 ]
+
+                                [ 1  0  0 | 50 ]
+                                [ 0  1  0 | 25 ]
+                                [ 0  0  1 | 25 ]
+        !what you're really doing is solving an equation using matrices!
+        Matrix multiplication
+            ax + by = e      [a b][x] = [e]
+            cx + dy = f  =>  [c d][y] = [f]
+        Cool examples
+            genetics
+                banana tastiness
+    Vectors and points
+        you guys are used to representing a point by two numbers: (x, y)
+        ?doesn't that look like a vector?
+            points and vectors aren't that different.
+            if you've got three numbers, you can imagine them being a point
+                    in space.
+            or you can imagine them as a vector.
+            !you can even take the coordinates of a point and interpret them 
+                    as a vector!
+                ?what does this look like?
+                put the point at the end of the arrow.  then the beginning is
+                        at the origin.
+                if you have an origin, points and vectors are really the same
+                        thing.
+    Dimensions and vector spaces
+        ?what's a dimension?
+            it's just a variable.  latitude, temperature, age, !amount of
+                    cheese!, etc.
+            ?so what does it mean to be three-dimensional, two-dimensional,
+                    etc.?
+                you have to have three (two) numbers to specify a location.
+                in space, we specify three axes.
+                    in linear algebra, this is called a "basis". (->WIP)
+                    !draw a basis in 2-D!
+        vectors are useful in all dimensions, but your space has to be linear.
+            ?what does linear mean?
+            intuitively, if two points are in the space, then the point
+                    halfway between them is too.
+            there's one more restriction: it must include the origin.
+                this is a bit weird, but it makes doing the math really nice.
+                usually you can just change your origin if you need to.
+            point, line, plane, whole space.
+            now see if you can imagine a 3-D "plane" in 4-D.
+                mind-boggling, huh?
+    Transformations of coordinate systems
+        Rotation
+            ?how do you rotate a vector in two dimensions?
+                x_r = x cos t - y sin t    [x_r] = [cos t  -sin t][x]
+                y_r = x sin t + y cos t    [y_r] = [sin t   cos t][y]
+                !look at the columns here!
+                to get a vector with the 1st column, multiply mat by <1, 0>
+                            "            2nd column,        "        <0, 1>
+                !we've got ourselves a new basis!
+        Linear transformations (-> WIP)
+            scaling - uniform, non-uniform
+            reflection
+                !just use negative numbers!
+            shear and other weird ones
+                !but they're still linear!
+        Projection
+            take two dimensions and smush them into one.
+                !what you end up with doesn't cover the whole plane!
+                    "Span" -> WIP
+            take three dimensions and smush them into two.
+            ?can we take this further?
+                www.youtube.com/watch?v=t-WyreE9ZkI

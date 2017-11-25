@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Instructions - Honors thesis - Will Monroe</title>
+        <link rel="stylesheet" href="../css/style.css" type="text/css" />
+    </head>
+    <body>
+		
+        <div id="content">
+            <h2>Honors thesis - Instructions</h2>
+            
+            <p>
+                These instructions are rudimentary and not very well tested&mdash;I'm relying on
+                vague memory in a lot of cases, so if you run into an error that's not mentioned
+                below, contact me and I can help resolve it (and then add to the instructions for
+                future reference!).
+            </p>
+            <h3>Get the source code</h3>
+            <p>
+                Source archives are available in <a href="matrixmult.zip">.zip</a> and
+                <a href="matrixmult.tar.gz">.tar.gz</a> format. If you prefer using version
+                control or would be interested in looking at the implementation history, you can
+                also clone the <tt>git</tt> repository by running the following at the command
+                line:
+            </p>
+            <pre>    $ git clone http://stanford.edu/~wmonroe4/matrixmult.git</pre>
+            <h3>Install Python</h3>
+            <p>
+                The first thing you'll need to do is install Python, if you haven't already. I
+                recommend grabbing the latest 2.x, 32-bit version from the
+                <a href="http://www.python.org/download/">Download page</a>. 64-bit versions and
+                versions that start with "3" are unlikely to work correctly. You'll then want to
+                install <a href="https://pypi.python.org/pypi/setuptools#files">setuptools</a>,
+                which makes figuring out Python libraries immeasurably easier.
+            </p>
+            <h3>Install NumPy</h3>
+            <p>
+                <a href="http://www.numpy.org/">NumPy</a> is the first library you'll want to
+                tackle. Windows and Mac users will probably want to get the binary from
+                <a href="http://sourceforge.net/projects/numpy/files/NumPy/">SourceForge</a>,
+                which is pre-built so you don't have to deal with compiling C code for these
+                operating systems. On Linux, I'm fairly sure that <tt>pip</tt> is the best option
+                for installing NumPy:
+            </p>
+            <pre>    $ easy_install-2.7 pip
+    $ pip install scipy</pre>
+            <p>
+                On all OSs, make sure this worked by starting Python and typing
+            </p>
+            <pre>    >>> import numpy</pre>
+            <h3>Install SymPy and PuLP</h3>
+            <p>
+                With NumPy and setuptools in hand, you can install two more of the dependencies,
+                <a href="http://sympy.org/">SymPy</a>
+                and <a href="http://code.google.com/p/pulp-or/">PuLP</a>.
+                On Windows:
+            </p>
+            <pre>    > \Python27\Scripts\easy_install sympy
+    > \Python27\Scripts\easy_install pulp-or</pre>
+            </p>
+                On Linux/Mac (these instructions should apply equally to both, although if Mac
+                users run into issues, let me know):
+            <pre>    $ easy_install-2.7 pulp-or
+    $ easy_install-2.7 sympy</pre>
+            <p>
+                (If your version of Python isn&apos;t 2.7, change these commands accordingly and
+                cross your fingers.) Now these commands should work:
+            </p>
+            <pre>    >>> import sympy
+    >>> import pulp</pre>
+            <h3>Install GLPK</h3>
+            <p>
+                <a href="http://www.gnu.org/software/glpk/glpk.html">GLPK</a> has a
+                <a href="http://gnuwin32.sourceforge.net/packages/glpk.htm">binary
+                installer for Windows</a>; after installing it, you should
+                <a href="http://www.mathworks.com/support/solutions/en/data/1-15ZLK/">add
+                GLPK's <tt>bin</tt> directory to your PATH</a> (probably something like
+                C:\Program&nbsp;Files\GnuWin32\bin). On Linux it can typically
+                be installed from official distro sources, e.g. on Ubuntu
+            </p>
+            <pre>    $ sudo apt-get install glpk</pre>
+            <p>
+                Mac users will probably have to
+                <a href="http://hichenwang.blogspot.com/2011/08/fw-installing-glpk-on-mac.html">compile
+                from source</a>, as far as I can tell. Another option is to instead try to use
+                <a href="http://www.coin-or.org/download/binary/Clp/">COIN-OR's LP
+                solver</a> (<a href="https://projects.coin-or.org/Clp">home page</a>), which should
+                also work smoothly with PuLP. The only change necessary should be to replace
+                <tt>pulp.GLPK</tt> with <tt>pulp.COIN</tt> in <tt>solvers.py</tt>, but I haven't
+                tested this.
+            </p>
+            <h3>Install NLopt</h3>
+            <p>
+                For <a href="http://ab-initio.mit.edu/wiki/index.php/NLopt">NLopt</a>,
+                once again Windows users have it easier&mdash;they can simply
+                <a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#nlopt">download an
+                executable installer</a>. Others will have to install from source. Make
+                sure Python and NumPy are installed, then download the source on the NLopt
+                home page; you'll need to specify the shared library configuration to get it
+                to play well with Python:
+            </p>
+            <pre>    nlopt-2.3$ ./configure --enable-shared
+    nlopt-2.3$ make
+    nlopt-2.3$ make install</pre>
+            <p>
+                If this completes successfully, you should be able to open NLopt in Python as
+                well:
+            </p>
+            <pre>    >>> import nlopt</pre>
+            <h3>Try it out!</h3>
+            <p>
+                Finally, try starting a search for omega:
+            </p>
+            <pre>    matrixmult\src> \Python27\python search.py</pre>
+            <pre>    matrixmult/src$ python search.py</pre>
+
+            <ul class="link_row">
+                <li class="link_group"><h2></h2>
+                    <ul>
+                        <li><a href="/"></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
+
