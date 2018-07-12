@@ -1,0 +1,88 @@
+body {
+    font-family: Verdana, sans-serif;
+}
+
+h1 { font-size: 140%; color: #007777; }
+h2 { font-size: 130%; color: #007777; }
+h3 { font-size: 120%; color: #007777; }
+
+a { color: #0044aa; }
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:active { text-decoration: none; }
+a:hover { text-decoration: none; color: #0088cc; }
+
+#header {
+    text-align: center;
+    display: table;
+    color: #007777;
+}
+
+#header, #content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+}
+
+#logo {
+    padding: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#title {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#turn {
+    width: 10em;
+}
+
+#results {
+    text-align: center;
+    margin: 1ex 0;
+}
+
+#page_nums {
+    text-align: left;
+}
+
+.column {
+    display: inline-block;
+    padding: 0 2em;
+    width: 10em;
+    vertical-align: top;
+}
+
+.column p {
+    margin: 0.5ex 0;
+}
+
+.column p.col-header {
+    font-weight: bold;
+    color: #007777;
+}
+
+#countdown {
+    display: none;
+    margin: 1ex 0;
+}
+
+#countdown.show {
+    display: block;
+}
+
+#countdown span {
+    color: #cccccc;
+    padding: 0 1em;
+}
+
+#countdown span.countdown {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+#countdown.play span.countdown {
+    color: #3333ff;
+}
