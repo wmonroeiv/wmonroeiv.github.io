@@ -61,6 +61,8 @@ var start = function(evt) {
 }
 
 var turn = function(evt) {
+    if (evt.which !== 1 && evt.which !== 32) return
+
     $('#turn').blur()
 
     if (startActive) return
