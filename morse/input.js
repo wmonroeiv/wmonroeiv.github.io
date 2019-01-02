@@ -5,6 +5,8 @@ var wpm = 20
 var buffer = ''
 var events = {}
 var currEvent = null
+var isPlaying = false
+var isAnimating = false
 
 var refTime = 0
 var offset = 0
@@ -109,6 +111,8 @@ var down = function(event) {
         // tone().play()
         tone().muted = false
     }
+    if (!isAnimating)
+        setTimeout(runAnimation, 1000 / 60)
     event.preventDefault()
 }
 
@@ -193,6 +197,11 @@ var tone = function() {
         toneAudio.loop = true
         toneAudio.load()
     }
+    if (!isPlaying) {
+        var promise = toneAudio.play()
+        if (typeof(promise) !== 'undefined')
+            promise.then(function() {}).catch(function(e) {})
+    }
     return toneAudio
 }
 
@@ -232,8 +241,8 @@ var resetWpm = function(value) {
 }
 
 var runAnimation = function() {
-    animate()
-    setTimeout(runAnimation, 1000 / 60)
+    if (animate())
+        setTimeout(runAnimation, 1000 / 60)
 }
 
 var updateShow = function(checked) {
@@ -247,6 +256,7 @@ var updateShow = function(checked) {
 var animate = function() {
     var currCoord = timeToCoords(+new Date())
     var cleanup = []
+    var hasEvents = false
     for (eid in events) {
         if (eid.startsWith('eid-')) {
             var event = events[eid]
@@ -260,6 +270,7 @@ var animate = function() {
                     event.element.removeClass('dit')
                     event.element.addClass('dah')
                 }
+                hasEvents = true
             }
         }
     }
@@ -267,6 +278,7 @@ var animate = function() {
         events[eid].element.remove()
         delete events[eid]
     })
+    return hasEvents
 }
 
 var timeToCoords = function(time) {
@@ -293,10 +305,8 @@ $(document).ready(function() {
         if (event.which === 32) up(event)
     })
 
-    // tone()
-    tone().play()
+    tone()
     refTime = +new Date()
     wpmSlider($('#wpm-slider')[0].value)
     updateShow($('#show')[0].checked)
-    setTimeout(runAnimation, 1000 / 60)
 })
