@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Morse Code Writer</title>
+    <meta charset="utf-8">
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="input.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+    <div class="content">
+    <h1>Morse Code Writer</h1>
+    <div class="input"></div>
+    <div class="timebar"></div>
+    <div class="config">
+        <div class="config-row">
+            <span class="button"></span>
+            <span class="delete" id="backspace">&lt; delete</span>
+            <span class="delete" id="clear">clear</span>
+        </div>
+        <div class="config-row">
+            Words per minute (PARIS standard):
+        </div>
+        <div class="config-row">
+            <input id="wpm-num" type="text" value="20" />
+            <input id="wpm-slider" type="range" min="1" max="40" value="20" />
+        </div>
+    </div>
+    <div class="showbox">
+        <input id="show" type="checkbox" />
+        <label for="show">Show cheatsheets</label>
+    </div>
+    <div class="collapse hidden">
+        <table class="cheatsheet">
+        <tr><th colspan="5">Letters</th></tr>
+        <tr><td>A</td><td>.-</td>   <td></td><td>N</td><td>-.</td></tr>
+        <tr><td>B</td><td>-...</td> <td></td><td>O</td><td>---</td></tr>
+        <tr><td>C</td><td>-.-.</td> <td></td><td>P</td><td>.--.</td></tr>
+        <tr><td>D</td><td>-..</td>  <td></td><td>Q</td><td>--.-</td></tr>
+        <tr><td>E</td><td>.</td>    <td></td><td>R</td><td>.-.</td></tr>
+        <tr><td>F</td><td>..-.</td> <td></td><td>S</td><td>...</td></tr>
+        <tr><td>G</td><td>--.</td>  <td></td><td>T</td><td>-</td></tr>
+        <tr><td>H</td><td>....</td> <td></td><td>U</td><td>..-</td></tr>
+        <tr><td>I</td><td>..</td>   <td></td><td>V</td><td>...-</td></tr>
+        <tr><td>J</td><td>.---</td> <td></td><td>W</td><td>.--</td></tr>
+        <tr><td>K</td><td>-.-</td>  <td></td><td>X</td><td>-..-</td></tr>
+        <tr><td>L</td><td>.-..</td> <td></td><td>Y</td><td>-.--</td></tr>
+        <tr><td>M</td><td>--</td>   <td></td><td>Z</td><td>--..</td></tr>
+        </table>
+    </div>
+
+    <div class="collapse hidden">
+        <table class="cheatsheet">
+        <tr><th colspan="5">Numbers</th></tr>
+        <tr><td>0</td><td>-----</td> <td></td> <td>5</td><td>.....</td></tr>
+        <tr><td>1</td><td>.----</td> <td></td> <td>6</td><td>-....</td></tr>
+        <tr><td>2</td><td>..---</td> <td></td> <td>7</td><td>--...</td></tr>
+        <tr><td>3</td><td>...--</td> <td></td> <td>8</td><td>---..</td></tr>
+        <tr><td>4</td><td>....-</td> <td></td> <td>9</td><td>----.</td></tr>
+        </table>
+    </div>
+
+    <div class="collapse hidden">
+        <table class="cheatsheet">
+        <tr><th colspan="5">Punctuation</th></tr>
+        <tr><td>.</td><td>.-.-.-</td> <td></td> <td>&amp;</td><td>.-...</td></tr>
+        <tr><td>,</td><td>--..--</td> <td></td> <td>:</td><td>---...</td></tr>
+        <tr><td>?</td><td>..--..</td> <td></td> <td>=</td><td>-...-</td></tr>
+        <tr><td>'</td><td>.----.</td> <td></td> <td>+</td><td>.-.-.</td></tr>
+        <tr><td>/</td><td>-..-.</td>  <td></td> <td>-</td><td>-....-</td></tr>
+        <tr><td>(</td><td>-.--.</td>  <td></td> <td>"</td><td>.-..-.</td></tr>
+        <tr><td>)</td><td>-.--.-</td> <td></td> <td>@</td><td>.--.-.</td></tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr><td>!</td><td>-.-.--</td> <td></td> <td>;</td><td>-.-.-.</td>
+        <tr><td>_</td><td>..--.-</td> <td></td> <td>$</td><td>...-...-</td>
+        </table>
+    </div>
+
+    <div class="collapse hidden">
+        <table class="cheatsheet">
+        <tr><th colspan=5>Non-English</th></tr>
+        <tr><td>À</td><td>.--.-</td> <td></td> <td>Ĵ</td><td>.---.</td></tr>
+        <tr><td>Ä</td><td>.-.-</td>  <td></td> <td>Ñ</td><td>--.--</td></tr>
+        <tr><td>Ç</td><td>-.-..</td> <td></td> <td>Ś</td><td>...-...</td></tr>
+        <tr><td>Š</td><td>----</td>  <td></td> <td>Ŝ</td><td>...-.</td></tr>
+        <tr><td>É</td><td>..-..</td> <td></td> <td>Þ</td><td>.--..</td></tr>
+        <tr><td>Đ</td><td>..--.</td> <td></td> <td>Ü</td><td>..--</td></tr>
+        <tr><td>È</td><td>.-..-</td> <td></td> <td>Ź</td><td>--..-.</td></tr>
+        <tr><td>Ĝ</td><td>--.-.</td> <td></td> <td>Ż</td><td>--..-</td></tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

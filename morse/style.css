@@ -1,0 +1,149 @@
+body {
+    font-family: monospace;
+    font-size: 14pt;
+}
+
+h1 {
+    font-size: 150%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 125%;
+}
+
+.cheatsheet {
+    border-spacing: 1ex 0;
+    margin-bottom: 1ex;
+}
+
+.content {
+    max-width: 60em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input {
+    min-height: 2em;
+    padding: 1ex;
+    border: 1pt solid #888;
+    border-radius: 3pt;
+    word-wrap: break-word;
+}
+
+.timebar {
+    height: 2em;
+    border-left: 1pt solid #888;
+    border-right: 1pt solid #888;
+    margin-top: 1ex;
+    overflow: hidden;
+    position: relative;
+}
+
+.timing {
+    display: inline-block;
+    position: absolute;
+    height: 1em;
+}
+
+.dah {
+    border: 1pt solid #800;
+    background-color: red;
+    top: calc(0.5em - 1pt);
+    z-index: 2;
+    left: -1em;
+    width: 3em;
+}
+
+.dit {
+    border: 1pt solid #840;
+    background-color: orange;
+    top: calc(0.5em - 1pt);
+    z-index: 2;
+    left: 3em;
+    width: 1em;
+}
+
+.gap {
+    background-color: #bbf;
+    top: 0.5em;
+    z-index: 1;
+    left: 2em;
+    width: 1em;
+}
+
+.letterspace {
+    background-color: #8ff;
+    top: 0.5em;
+    z-index: 1;
+    left: 4em;
+    width: 3em;
+}
+
+.button {
+    width: 3em;
+    height: 3em;
+    border: 1pt solid black;
+    border-radius: 1.5em;
+    background-color: red;
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 1ex;
+}
+
+.config {
+    margin: 1ex auto;
+    padding: 1ex;
+    max-width: 22em;
+}
+
+.config-row {
+    white-space: nowrap;
+    margin: 0 1ex;
+    padding: 0.5ex;
+}
+
+.delete {
+    display: inline-block;
+    height: 2em;
+    line-height: 2em;
+    border: 1pt solid #888;
+    border-radius: 3pt;
+    margin-left: 3em;
+    margin-bottom: 1ex;
+    padding: 0.5em;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.delete:active {
+    background-color: #ccc;
+}
+
+.showbox {
+    margin-bottom: 1ex;
+}
+
+.collapse.hidden {
+    display: none;
+}
+
+.collapse {
+    display: inline-block;
+    vertical-align: top;
+}
+
+th {
+    padding-bottom: 1ex;
+}
+
+#wpm-num {
+    width: 3em;
+    vertical-align: middle;
+}
+
+#wpm-slider {
+    width: 19.5em;
+    margin: 0 0 0 0.5em;
+    vertical-align: middle;
+}
