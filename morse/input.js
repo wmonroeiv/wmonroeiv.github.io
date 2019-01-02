@@ -287,7 +287,9 @@ var timeToCoords = function(time) {
 
 $(document).ready(function() {
     $('.button').mousedown(down)
+    $('.button').on('touchstart', down)
     $('.button').mouseup(up)
+    $('.button').on('touchend', up)
 
     $('#backspace').mouseup(backspace)
     $('#clear').mouseup(clear)
