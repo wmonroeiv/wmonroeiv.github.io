@@ -86,6 +86,12 @@ var morseTable = {
     '..--':  'Ü',
     '--..-.': 'Ź',
     '--..-': 'Ż',
+
+    '........': (function() { backspace() }),
+    '-.-.-': (function() { clear() }),
+    '..-.-': '¿',
+    '...-.-': '∎',
+    '...---...': '🆘',
 }
 
 var down = function(event) {
@@ -170,7 +176,9 @@ var closeLetter = function(i, lastUp, dot) {
         currEvent.element.addClass('letterspace')
     }
     var char = morseTable[buffer]
-    if (typeof(char) !== 'undefined')
+    if (typeof(char) === 'function')
+        char()
+    else if (typeof(char) !== 'undefined')
         $('.input').append(char)
     buffer = ''
 }
@@ -207,7 +215,8 @@ var tone = function() {
 
 var backspace = function(event) {
     $('.input').html($('.input').html().trim().slice(0, -1) + ' ')
-    event.preventDefault()
+    if (typeof(event) !== 'undefined')
+        event.preventDefault()
 }
 
 var clear = function(event) {
