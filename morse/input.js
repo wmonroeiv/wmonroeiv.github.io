@@ -221,7 +221,8 @@ var backspace = function(event) {
 
 var clear = function(event) {
     $('.input').html('')
-    event.preventDefault()
+    if (typeof(event) !== 'undefined')
+        event.preventDefault()
 }
 
 var wpmNum = function(valueStr) {
