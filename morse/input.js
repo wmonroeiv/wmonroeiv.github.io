@@ -158,8 +158,8 @@ var up = function(event) {
         animate()
 
         var i = numEvents
-        setTimeout(function() { closeLetter(i, now, dot) }, dot * 2)
-        setTimeout(function() { closeWord(i, now, dot) }, dot * 5)
+        setTimeout(function() { closeLetter(i) }, dot * 2)
+        setTimeout(function() { closeWord(i) }, dot * 5)
     }
 
     isDown = false
@@ -169,7 +169,7 @@ var up = function(event) {
     event.preventDefault()
 }
 
-var closeLetter = function(i, lastUp, dot) {
+var closeLetter = function(i) {
     if (numEvents !== i) return
     if (currEvent !== null) {
         currEvent.element.removeClass('gap')
@@ -183,7 +183,7 @@ var closeLetter = function(i, lastUp, dot) {
     buffer = ''
 }
 
-var closeWord = function(i, lastUp, dot) {
+var closeWord = function(i) {
     if (numEvents !== i) return
     if (currEvent !== null) {
         delete events[currEvent.id]
@@ -214,7 +214,7 @@ var tone = function() {
 }
 
 var backspace = function(event) {
-    $('.input').html($('.input').html().trim().slice(0, -1) + ' ')
+    $('.input').html($('.input')[0].textContent.trim().slice(0, -1))
     if (typeof(event) !== 'undefined')
         event.preventDefault()
 }
@@ -301,7 +301,7 @@ $(document).ready(function() {
     $('.button').mouseup(up)
     $('.button').on('touchend', up)
 
-    $('#backspace').mouseup(backspace)
+    $('#backspace').mouseup(function (evt) { backspace(evt); closeWord(numEvents) })
     $('#clear').mouseup(clear)
 
     $('#show').on('input', function(evt) { updateShow(this.checked) })
