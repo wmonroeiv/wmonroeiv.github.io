@@ -28,8 +28,8 @@ a:hover { text-decoration: none; color: #0088cc; }
 }
 
 #mugshot {
-    width: 128px;
-    height: 128px;
+    width: 120px;
+    height: 140px;
     padding: 10px;
     display: inline-block;
     vertical-align: bottom;
