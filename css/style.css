@@ -39,6 +39,10 @@ ul {
     list-style-type: none;
 }
 
+.subpub {
+    margin-left: 1em;
+}
+
 h1 {
     font-size: 140%;
 }
